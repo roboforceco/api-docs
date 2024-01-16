@@ -1,0 +1,24 @@
+```python
+
+from langchain.prompts.chat import (
+    ChatPromptTemplate,
+    HumanMessagePromptTemplate,
+    SystemMessagePromptTemplate,
+)
+
+from langchain.schema import HumanMessage, SystemMessage
+from langchain_openai import ChatOpenAI
+
+chat = ChatOpenAI(temperature=0, openai_api_key='YOUR API KEY', openai_api_base='https://api.mlrails.com')
+
+messages = [
+    SystemMessage(
+        content="You are a helpful assistant that translates English to French."
+    ),
+    HumanMessage(
+        content="Translate this sentence from English to French. I love programming."
+    ),
+]
+
+resp = chat(messages)
+```

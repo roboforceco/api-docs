@@ -1,0 +1,16 @@
+---
+title: "Router"
+---
+
+## How Router Works
+
+The Chat Completion now includes a routing feature, designed to enhance reliability and continuity in API interactions. This feature ensures that if the primary model fails or is unavailable, the request is automatically routed to a pre-defined fallback model. This document explains the routing functionality, its advantages, and how to implement it effectively.
+
+### Overview
+
+Routing in the OpenAI Chat Completion API serves as a fail-safe mechanism. When a request is made to a specific model and that model is unable to respond (due to unavailability, overload, or other issues), the API automatically redirects the request to a secondary, fallback model. This ensures continuity and reduces the likelihood of service interruptions.
+
+### Benefits of Routing
+- <b>Enhanced Reliability</b>: Routing provides a backup option, ensuring that requests are handled even if the primary model is unavailable.
+- <b>Seamless User Experience</b>: It minimizes disruptions, maintaining a smooth and consistent user experience.
+- <b>Flexibility in Model Usage</b>: Allows for more flexibility in using various models, as fallback options are readily available

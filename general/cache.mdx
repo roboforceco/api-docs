@@ -1,0 +1,40 @@
+---
+title: "Cache"
+---
+
+## How Caching Works
+
+Caching is an important feature in the Chat Completion API, designed to enhance performance and efficiency. When enabled, this feature allows the API to store and reuse responses for identical requests. This document provides a comprehensive guide on how caching works, its benefits, and how to use it effectively.
+
+### Overview
+
+Caching in the  Chat Completion API enables the storage of responses for subsequent identical requests. This means that if the cache argument is set to true, the API will remember the response it provided for a specific prompt and return this cached response for any future requests with the same prompt.
+
+### Benefits of Caching
+
+- <b>Reduced Latency</b>: Caching can significantly reduce response times for repeated requests, as the API can quickly retrieve a stored response instead of generating a new one.
+- <b>Increased Efficiency</b>: It reduces the computational load on the API, leading to more efficient operation, especially under high request volumes.
+- <b>Consistent Responses</b>: Ensures consistency in responses for the same request, which can be crucial in certain applications.
+
+### How to Use Caching
+To utilize the caching feature, you need to include the cache argument in your API request and set it to true. Here's a simple example of how to implement it:
+
+```bash
+curl https://api.mlrails.com/chat/completions \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $MLRails_API_KEY" \
+-d '{
+  "cache": true,
+  "model": "model_name",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant."
+    },
+    {
+      "role": "user",
+      "content": "Hello!"
+    }
+  ]
+}'
+```

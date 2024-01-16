@@ -1,0 +1,82 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "ML Rails",
+  "logo": {
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg"
+  },
+  "favicon": "/favicon.png",
+  "colors": {
+    "primary": "#9563FF",
+    "light": "#AE87FF",
+    "dark": "#0D001D",
+    "background": {
+      "dark": "#090014"
+    },
+    "anchors": {
+      "from": "#FF7F57",
+      "to": "#9563FF"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "Support",
+      "url": "mailto:hello@mlrails.com"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Dashboard",
+    "url": "https://console.mlrails.com/"
+  },
+  "anchors": [
+    {
+      "name": "Community",
+      "icon": "slack",
+      "url": "https://mlrails.com"
+    },
+    {
+      "name": "Blog",
+      "icon": "newspaper",
+      "url": "https://blog.mlrails.com"
+    },
+    {
+      "name": "OpenAI",
+      "icon": "flower",
+      "url": "openai"
+    },
+    {
+      "name": "Langchain",
+      "icon": "crow",
+      "url": "langchain"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "API Documentation",
+      "pages": [
+        "general/auth",
+        "general/models",
+        "general/cache",
+        "general/route"
+      ]
+    },
+    {
+      "group": "OpenAI",
+      "pages": [
+        "openai/python"
+      ]
+    },
+    {
+      "group": "Langchain",
+      "pages": [
+        "langchain/openai"
+      ]
+    }, 
+    {
+      "group": "Chat",
+      "pages": [
+        "chat/completions"
+      ]
+    }
+  ]
+}

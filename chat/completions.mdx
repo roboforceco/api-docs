@@ -1,0 +1,133 @@
+---
+openapi: post /chat/completions
+---
+
+
+<RequestExample>
+
+```bash Default
+curl https://api.mlrails.com/chat/completions \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $MLRails_API_KEY" \
+-d '{
+  "model": "model_name",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant."
+    },
+    {
+      "role": "user",
+      "content": "Hello!"
+    }
+  ]
+}'
+```
+
+
+```bash With Cache
+curl https://api.mlrails.com/chat/completions \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $MLRails_API_KEY" \
+-d '{
+  "cache": true,
+  "model": "model_name",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant."
+    },
+    {
+      "role": "user",
+      "content": "Hello!"
+    }
+  ]
+}'
+```
+
+```bash Stream
+curl https://api.mlrails.com/chat/completions \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $MLRails_API_KEY" \
+-d '{
+  "model": "model_name",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant."
+    },
+    {
+      "role": "user",
+      "content": "Hello!"
+    }
+  ],
+  "stream": true
+}'
+```
+
+```python Python
+from openai import OpenAI
+client = OpenAI(
+    base_url='https://api.mlrails.com',
+	api_key='YOUR API KEY',
+)
+
+completion = client.chat.completions.create(
+    model="model_name",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Hello!"}
+    ]
+)
+
+print(completion.choices[0].message)
+
+```
+
+
+</RequestExample>
+
+
+
+<ResponseExample>
+
+```json Default
+{
+  "id": "chatcmpl-123",
+  "object": "chat.completion",
+  "created": 1677652288,
+  "model": "gpt-3.5-turbo-0613",
+  "system_fingerprint": "fp_44709d6fcb",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "\n\nHello there, how may I assist you today?"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 9,
+    "completion_tokens": 12,
+    "total_tokens": 21
+  }
+}
+```
+```json Stream
+{"id":"chatcmpl-123","object":"chat.completion.chunk","created":1694268190,"model":"gpt-3.5-turbo-0613", "system_fingerprint": "fp_44709d6fcb", "choices":[{"index":0,"delta":{"role":"assistant","content":""}"finish_reason":null}]}
+
+{"id":"chatcmpl-123","object":"chat.completion.chunk","created":1694268190,"model":"gpt-3.5-turbo-0613", "system_fingerprint": "fp_44709d6fcb", "choices":[{"index":0,"delta":{"content":"Hello"},"finish_reason":null}]}
+
+{"id":"chatcmpl-123","object":"chat.completion.chunk","created":1694268190,"model":"gpt-3.5-turbo-0613", "system_fingerprint": "fp_44709d6fcb", "choices":[{"index":0,"delta":{"content":"!"},"finish_reason":null}]}
+
+....
+
+{"id":"chatcmpl-123","object":"chat.completion.chunk","created":1694268190,"model":"gpt-3.5-turbo-0613", "system_fingerprint": "fp_44709d6fcb", "choices":[{"index":0,"delta":{"content":" today"},"finish_reason":null}]}
+
+{"id":"chatcmpl-123","object":"chat.completion.chunk","created":1694268190,"model":"gpt-3.5-turbo-0613", "system_fingerprint": "fp_44709d6fcb", "choices":[{"index":0,"delta":{"content":"?"},"finish_reason":null}]}
+
+{"id":"chatcmpl-123","object":"chat.completion.chunk","created":1694268190,"model":"gpt-3.5-turbo-0613", "system_fingerprint": "fp_44709d6fcb", "choices":[{"index":0,"delta":{},"finish_reason":"stop"}]}
+```
+</ResponseExample>
